@@ -1,8 +1,10 @@
-function cleanSet(set, startString) {
-  return Array.from(set)
-    .filter(value => value.startsWith(startString))
-    .map(value => value.slice(startString.length))
+/* eslint-disable array-callback-return */
+export default function cleanSet(set, string) {
+  if (string === undefined || string.length === 0) {
+    return '';
+  }
+  return [...set]
+    .filter((str) => (str !== undefined ? str.startsWith(string) : ''))
+    .map((str) => (str !== undefined ? str.slice(string.length) : ''))
     .join('-');
 }
-
-export default cleanSet;
